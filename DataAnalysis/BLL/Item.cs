@@ -8,7 +8,7 @@ namespace FCM.Types
 {
 	public class Item
 	{
-		public int Id
+		public int Id { get; set; }
 		public float Quantity { get; set; }
 		public decimal Price { get; set; }
 		public string SalesmanName { get; set; }
