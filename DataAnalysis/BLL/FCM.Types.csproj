@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IRecordType.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Salesman.cs" />
     <Compile Include="Customer.cs" />

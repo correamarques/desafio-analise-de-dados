@@ -2,7 +2,7 @@
 
 namespace FCM.Types
 {
-	public class Sale
+	public class Sale : IRecordType
 	{
 		public int ID { get; set; }
 		public List<Item> Items { get; set; }
