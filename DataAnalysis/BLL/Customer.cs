@@ -1,7 +1,7 @@
 ﻿
 namespace FCM.Types
 {
-	public class Customer : IRecordType
+	public class Customer 
 	{
 		public string CNPJ { get; set; }
 		public string Name { get; set; }
