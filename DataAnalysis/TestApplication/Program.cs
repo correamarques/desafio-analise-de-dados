@@ -1,7 +1,8 @@
 ﻿using FCM.IO.Loader;
+using FCM.Types;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
-using System.IO;
 
 namespace TestApplication
 {
@@ -14,15 +15,15 @@ namespace TestApplication
 			string inputFolder = Environment.ExpandEnvironmentVariables("%HOMEDRIVE%" + ConfigurationManager.AppSettings["InputDirectory"]);
 			string outputFolder = Environment.ExpandEnvironmentVariables("%HOMEDRIVE%" + ConfigurationManager.AppSettings["OutputDirectory"]);
 			// separators
-			string fieldSeparator = ConfigurationManager.AppSettings["fieldSeparator"];
-			string itemSeparator = ConfigurationManager.AppSettings["itemSeparator"];
-			string itemDataSeparator = ConfigurationManager.AppSettings["itemDataSeparator"];
+			char fieldSeparator = Convert.ToChar(ConfigurationManager.AppSettings["fieldSeparator"]);
+			char itemSeparator = Convert.ToChar(ConfigurationManager.AppSettings["itemSeparator"]);
+			char itemDataSeparator = Convert.ToChar(ConfigurationManager.AppSettings["itemDataSeparator"]);
 			#endregion
 
 			try
 			{
-				LoaderManager loader = new LoaderManager(inputFolder);
-				loader.LoadFiles();
+				LoaderManager loader = new LoaderManager(inputFolder, fieldSeparator, itemSeparator, itemDataSeparator);
+				List<FlatFile> files = loader.LoadFiles();
 			}
 			catch (Exception e)
 			{
