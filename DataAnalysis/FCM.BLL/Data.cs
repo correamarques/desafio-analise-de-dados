@@ -6,7 +6,7 @@ namespace FCM.BLL
 {
     public class Data
     {
-		public List<FileReport> PerformAnalysis(List<FlatFile> flatFiles)
+		public IList<FileReport> PerformAnalysis(IList<FlatFile> flatFiles)
 		{
 			List<FileReport> reportList = new List<FileReport>();
 			foreach (FlatFile flatFile in flatFiles)

@@ -54,6 +54,10 @@
       <Project>{394c419e-497b-4c25-91eb-c8f2057a6e1b}</Project>
       <Name>FCM.BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FCM.IO.Exporter\FCM.IO.Exporter.csproj">
+      <Project>{9dc9c0d6-b238-46f1-b258-d31ff229edbb}</Project>
+      <Name>FCM.IO.Exporter</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FCM.Types\FCM.Types.csproj">
       <Project>{39ce4c79-364c-446a-a73f-fe3722ba2cad}</Project>
       <Name>FCM.Types</Name>

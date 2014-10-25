@@ -1,4 +1,5 @@
 ﻿using FCM.BLL;
+using FCM.IO.Exporter;
 using FCM.IO.Loader;
 using FCM.Types;
 using System;
@@ -24,10 +25,14 @@ namespace TestApplication
 			try
 			{
 				LoaderManager loader = new LoaderManager(inputFolder, fieldSeparator, itemSeparator, itemDataSeparator);
-				List<FlatFile> files = loader.LoadFiles();
+				IList<FlatFile> files = loader.LoadFiles();
 
 				Data data = new Data();
-				List<FileReport> reportList = data.PerformAnalysis(files);
+				IList<FileReport> reportList = data.PerformAnalysis(files);
+
+				ExporterManager exporter = new ExporterManager(outputFolder, fieldSeparator);
+				exporter.Save(reportList);
+
 			}
 			catch (Exception e)
 			{
