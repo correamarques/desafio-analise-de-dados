@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace TestApplication
+namespace FCM.TestApplication
 {
 	public class Worker
 	{

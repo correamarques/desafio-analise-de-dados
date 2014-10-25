@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FCM.Types", "FCM.Types\FCM.Types.csproj", "{39CE4C79-364C-446A-A73F-FE3722BA2CAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApplication", "TestApplication\TestApplication.csproj", "{7E75F96B-085F-4535-9147-30C24786C3D7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FCM.TestApplication", "TestApplication\FCM.TestApplication.csproj", "{7E75F96B-085F-4535-9147-30C24786C3D7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FCM.IO.Loader", "FCM.IO.Loader\FCM.IO.Loader.csproj", "{E023F5CD-74EE-451B-B332-11986447E76A}"
 EndProject

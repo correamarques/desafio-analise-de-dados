@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 
-namespace TestApplication
+namespace FCM.TestApplication
 {
 	class Program
 	{
