@@ -13,44 +13,16 @@ namespace TestApplication
 	{
 		static void Main(string[] args)
 		{
-			#region Config system
-			// folders
-			string inputFolder = Environment.ExpandEnvironmentVariables("%HOMEDRIVE%" + ConfigurationManager.AppSettings["InputDirectory"]);
-			string outputFolder = Environment.ExpandEnvironmentVariables("%HOMEDRIVE%" + ConfigurationManager.AppSettings["OutputDirectory"]);
-			// separators
-			char fieldSeparator = Convert.ToChar(ConfigurationManager.AppSettings["fieldSeparator"]);
-			char itemSeparator = Convert.ToChar(ConfigurationManager.AppSettings["itemSeparator"]);
-			char itemDataSeparator = Convert.ToChar(ConfigurationManager.AppSettings["itemDataSeparator"]);
-			#endregion
-
+			ServiceManager serviceManager = new ServiceManager();
 			try
 			{
-				if (DirectoriesExists(inputFolder, outputFolder))
-				{
-					LoaderManager loader = new LoaderManager(inputFolder, fieldSeparator, itemSeparator, itemDataSeparator);
-					IList<FlatFile> files = loader.LoadFiles();
-
-					DataAnalysis dataAnalysis = new DataAnalysis();
-					IList<FileReport> reportList = dataAnalysis.PerformAnalysis(files);
-
-					ExporterManager exporter = new ExporterManager(outputFolder, fieldSeparator);
-					exporter.Save(reportList); 
-				}
-				else
-					Console.WriteLine("Directories not found.");
-
+				serviceManager.Start();
 			}
 			catch (Exception e)
 			{
+				serviceManager.Stop();
 				Console.WriteLine(e.Message);
 			}
-		}
-
-		static bool DirectoriesExists(string inputFolder, string outputFolder)
-		{
-			if (Directory.Exists(inputFolder) && Directory.Exists(outputFolder))
-				return true;
-			return false;
 		}
 	}
 }
