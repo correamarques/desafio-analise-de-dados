@@ -41,6 +41,9 @@ namespace FCM.IO.Loader
 			foreach (string file in FindFileList())
 			{
 				FlatFile flatFile = new FlatFile();
+				flatFile.Salesmen = new List<Salesman>();
+				flatFile.Customers = new List<Customer>();
+				flatFile.Sales = new List<Sale>();
 				flatFile.FileName = Path.GetFileNameWithoutExtension(file);
 
 				foreach (string line in File.ReadAllLines(file, Encoding.UTF8))
@@ -48,15 +51,12 @@ namespace FCM.IO.Loader
 					switch (line.Substring(0, 3))
 					{
 						case "001":
-							flatFile.Salesmen = new List<Salesman>();
 							flatFile.Salesmen.Add(ProcessSalesmanData(line.Split(fieldSeparetor)));
 							break;
 						case "002":
-							flatFile.Customers = new List<Customer>();
 							flatFile.Customers.Add(ProcessCustomerData(line.Split(fieldSeparetor)));
 							break;
 						case "003":
-							flatFile.Sales = new List<Sale>();
 							flatFile.Sales.Add(ProcessSaleData(line.Split(fieldSeparetor)));
 							break;
 						default: break;
