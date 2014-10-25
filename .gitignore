@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/DataAnalysis/FCM.BLL/obj/Debug
+/DataAnalysis/FCM.IO.Exporter/obj/Debug
+/DataAnalysis/FCM.IO.Loader/obj/Debug
+/DataAnalysis/FCM.Types/obj/Debug
+/DataAnalysis/TestApplication/bin/Debug
+/DataAnalysis/TestApplication/obj/Debug
