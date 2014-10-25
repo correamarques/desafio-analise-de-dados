@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FCM.Types", "BLL\FCM.Types.csproj", "{39CE4C79-364C-446A-A73F-FE3722BA2CAD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FCM.Types", "FCM.Types\FCM.Types.csproj", "{39CE4C79-364C-446A-A73F-FE3722BA2CAD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApplication", "TestApplication\TestApplication.csproj", "{7E75F96B-085F-4535-9147-30C24786C3D7}"
 EndProject
