@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace FCM.BLL
 {
-    public class Data
+    public class DataAnalysis
     {
 		public IList<FileReport> PerformAnalysis(IList<FlatFile> flatFiles)
 		{

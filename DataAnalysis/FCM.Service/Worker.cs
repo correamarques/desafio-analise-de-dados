@@ -6,12 +6,61 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading;
 
-namespace TestApplication
+namespace FCM.Service
 {
-	class Program
+	public class Worker
 	{
-		static void Main(string[] args)
+		private int workerIndex;
+		private System.Diagnostics.EventLog eventLog;
+		private bool serviceStarted;
+		public bool ServiceStarted
+		{
+			get { return serviceStarted; }
+			set { serviceStarted = value; }
+		}
+
+		public Worker(int workerIndex, System.Diagnostics.EventLog eventLog)
+		{
+			// TODO: Complete member initialization
+			this.workerIndex = workerIndex;
+			this.eventLog = eventLog;
+		}
+
+		internal void ExecuteTask()
+		{
+			this.eventLog.WriteEntry(String.Format("Starting worker {0}", this.workerIndex));
+
+			DateTime lastRunTime = DateTime.UtcNow;
+
+			while (serviceStarted)
+			{
+				// check the current time against the last run plus interval
+				if (((TimeSpan)(DateTime.UtcNow.Subtract(lastRunTime))).TotalSeconds >= 10)
+				{
+					// if time to do something, do so
+					// exception handling omitted here for simplicity
+					eventLog.WriteEntry("Multithreaded Service working; id = " + this.workerIndex.ToString(), System.Diagnostics.EventLogEntryType.Information);
+
+					// set new run time
+					lastRunTime = DateTime.UtcNow;
+				}
+
+				// yield
+				if (serviceStarted)
+				{
+					ProcessInformation();
+					Thread.Sleep(new TimeSpan(0, 0, 15));
+				}
+			}
+
+			Thread.CurrentThread.Abort();
+		}
+
+		void ProcessInformation()
 		{
 			#region Config system
 			// folders
@@ -34,7 +83,7 @@ namespace TestApplication
 					IList<FileReport> reportList = dataAnalysis.PerformAnalysis(files);
 
 					ExporterManager exporter = new ExporterManager(outputFolder, fieldSeparator);
-					exporter.Save(reportList); 
+					exporter.Save(reportList);
 				}
 				else
 					Console.WriteLine("Directories not found.");
@@ -45,8 +94,7 @@ namespace TestApplication
 				Console.WriteLine(e.Message);
 			}
 		}
-
-		static bool DirectoriesExists(string inputFolder, string outputFolder)
+		bool DirectoriesExists(string inputFolder, string outputFolder)
 		{
 			if (Directory.Exists(inputFolder) && Directory.Exists(outputFolder))
 				return true;

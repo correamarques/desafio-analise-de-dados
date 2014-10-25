@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FCM.IO.Exporter", "FCM.IO.E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FCM.BLL", "FCM.BLL\FCM.BLL.csproj", "{394C419E-497B-4C25-91EB-C8F2057A6E1B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FCM.Service", "FCM.Service\FCM.Service.csproj", "{6AD3FE0B-3E1E-4B72-9CE4-E27947867F2B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{394C419E-497B-4C25-91EB-C8F2057A6E1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{394C419E-497B-4C25-91EB-C8F2057A6E1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{394C419E-497B-4C25-91EB-C8F2057A6E1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AD3FE0B-3E1E-4B72-9CE4-E27947867F2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AD3FE0B-3E1E-4B72-9CE4-E27947867F2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AD3FE0B-3E1E-4B72-9CE4-E27947867F2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AD3FE0B-3E1E-4B72-9CE4-E27947867F2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
