@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("FCM.Types")]
+[assembly: AssemblyTitle("Types Layer")]
 [assembly: AssemblyDescription("Definition about classes")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Fabian Corrêa Marques")]
+[assembly: AssemblyCompany("FCM - Fabian Corrêa Marques")]
 [assembly: AssemblyProduct("Types")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
+[assembly: AssemblyCopyright("Copyright © FCM 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
