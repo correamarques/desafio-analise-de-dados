@@ -5,6 +5,7 @@ using FCM.Types;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 
 namespace TestApplication
 {
@@ -24,20 +25,32 @@ namespace TestApplication
 
 			try
 			{
-				LoaderManager loader = new LoaderManager(inputFolder, fieldSeparator, itemSeparator, itemDataSeparator);
-				IList<FlatFile> files = loader.LoadFiles();
+				if (DirectoriesExists(inputFolder, outputFolder))
+				{
+					LoaderManager loader = new LoaderManager(inputFolder, fieldSeparator, itemSeparator, itemDataSeparator);
+					IList<FlatFile> files = loader.LoadFiles();
 
-				Data data = new Data();
-				IList<FileReport> reportList = data.PerformAnalysis(files);
+					Data data = new Data();
+					IList<FileReport> reportList = data.PerformAnalysis(files);
 
-				ExporterManager exporter = new ExporterManager(outputFolder, fieldSeparator);
-				exporter.Save(reportList);
+					ExporterManager exporter = new ExporterManager(outputFolder, fieldSeparator);
+					exporter.Save(reportList); 
+				}
+				else
+					Console.WriteLine("Directories not found.");
 
 			}
 			catch (Exception e)
 			{
 				Console.WriteLine(e.Message);
 			}
+		}
+
+		static bool DirectoriesExists(string inputFolder, string outputFolder)
+		{
+			if (Directory.Exists(inputFolder) && Directory.Exists(outputFolder))
+				return true;
+			return false;
 		}
 	}
 }
