@@ -1,6 +1,7 @@
 ﻿using FCM.Types;
 //using FCM.Types;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -10,18 +11,22 @@ namespace FCM.IO.Loader
 		public class LoaderManager
 		{
 			private string sourcePath;
+			private char fieldSeparetor;
+			private char itemSeparator;
+			private char itemDataSeparator;
 
-			public LoaderManager(string sourcePath)
+			public LoaderManager(string sourcePath, char fieldSeparator = 'ç', char itemSeparator = ',', char itemDataSeparator = '-')
 			{
 				this.sourcePath = sourcePath;
+				this.fieldSeparetor = fieldSeparator;
+				this.itemSeparator = itemSeparator;
+				this.itemDataSeparator = itemDataSeparator;
 			}
 
 			private string[] FindFileList()
 			{
 				if (Directory.Exists(sourcePath))
-				{
 					return Directory.GetFiles(sourcePath);
-				}
 				else
 					throw new DirectoryNotFoundException();
 			}
@@ -47,9 +52,11 @@ namespace FCM.IO.Loader
 					}
 				}
 			}
-
-			private char fieldSeparetor = 'ç';
-
+			/// <summary>
+			/// Process Salesman data information
+			/// </summary>
+			/// <param name="rawData">raw data of Salesman</param>
+			/// <returns>Salesman data</returns>
 			private Salesman ProcessSalesmanData(string[] rawData)
 			{
 				Salesman resultData = new Salesman();
@@ -58,7 +65,11 @@ namespace FCM.IO.Loader
 
 				return resultData;
 			}
-
+			/// <summary>
+			/// Process Customer data information
+			/// </summary>
+			/// <param name="rawData">raw data of Customer</param>
+			/// <returns>Customer data</returns>
 			private Customer ProcessCustomerData(string[] rawData)
 			{
 				Customer resultData = new Customer();
@@ -68,6 +79,11 @@ namespace FCM.IO.Loader
 
 				return resultData;
 			}
+			/// <summary>
+			/// Process Customer data information
+			/// </summary>
+			/// <param name="rawData">raw data of Sale</param>
+			/// <returns>Sale data</returns>
 			private Sale ProcessSaleData(string[] rawData)
 			{
 				Sale resultData = new Sale();
@@ -77,17 +93,27 @@ namespace FCM.IO.Loader
 
 				return resultData;
 			}
-
+			/// <summary>
+			/// Process Item data information
+			/// </summary>
+			/// <param name="rawData">raw data of Item</param>
+			/// <returns>Item data</returns>
 			private List<Item> ProcessSaleItemData(string rawData)
 			{
 				//003çSale IDç[Item ID-Item Quantity-Item Price]çSalesman name
 				//[1-34-10,2-33-1.50,3-40-0.10]
+
+				string[] listItemData = Regex.Replace(rawData, @"[^\-\,\.0-9]{1,}", string.Empty).Split(this.itemSeparator);
 				List<Item> resultData = new List<Item>();
-				string teste = Regex.Replace(rawData, @"[^\-\,\.0-9]{1,}", string.Empty);
-				rawData.Replace("[", "").Replace("]", "");
-
-
-
+				foreach (string itemData in listItemData)
+				{
+					string[] filteredItem = itemData.Split(this.itemDataSeparator);
+					Item item = new Item();
+					item.Id = int.Parse(filteredItem[0]);
+					item.Quantity = float.Parse(filteredItem[1]);
+					item.Price = decimal.Parse(filteredItem[2], NumberStyles.Any, CultureInfo.InvariantCulture);
+					resultData.Add(item);
+				}
 				return resultData;
 			}
 		}

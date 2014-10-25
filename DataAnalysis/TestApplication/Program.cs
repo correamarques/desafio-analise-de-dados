@@ -9,9 +9,15 @@ namespace TestApplication
 	{
 		static void Main(string[] args)
 		{
-			//string inputFolder = System.IO.Path.GetFullPath(ConfigurationManager.AppSettings["InputDirectory"]);
+			#region Config system
+			// folders
 			string inputFolder = Environment.ExpandEnvironmentVariables("%HOMEDRIVE%" + ConfigurationManager.AppSettings["InputDirectory"]);
-			//string outputFolder = ConfigurationManager.AppSettings["OutputDirectory"];
+			string outputFolder = Environment.ExpandEnvironmentVariables("%HOMEDRIVE%" + ConfigurationManager.AppSettings["OutputDirectory"]);
+			// separators
+			string fieldSeparator = ConfigurationManager.AppSettings["fieldSeparator"];
+			string itemSeparator = ConfigurationManager.AppSettings["itemSeparator"];
+			string itemDataSeparator = ConfigurationManager.AppSettings["itemDataSeparator"];
+			#endregion
 
 			try
 			{
