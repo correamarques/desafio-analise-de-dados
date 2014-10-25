@@ -1,4 +1,5 @@
-﻿using FCM.IO.Loader;
+﻿using FCM.BLL;
+using FCM.IO.Loader;
 using FCM.Types;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,9 @@ namespace TestApplication
 			{
 				LoaderManager loader = new LoaderManager(inputFolder, fieldSeparator, itemSeparator, itemDataSeparator);
 				List<FlatFile> files = loader.LoadFiles();
+
+				Data data = new Data();
+				List<FileReport> reportList = data.PerformAnalysis(files);
 			}
 			catch (Exception e)
 			{

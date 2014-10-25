@@ -50,6 +50,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FCM.BLL\FCM.BLL.csproj">
+      <Project>{394c419e-497b-4c25-91eb-c8f2057a6e1b}</Project>
+      <Name>FCM.BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FCM.Types\FCM.Types.csproj">
       <Project>{39ce4c79-364c-446a-a73f-fe3722ba2cad}</Project>
       <Name>FCM.Types</Name>

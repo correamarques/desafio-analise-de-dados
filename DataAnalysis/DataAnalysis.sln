@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FCM.Types", "FCM.Types\FCM.Types.csproj", "{39CE4C79-364C-446A-A73F-FE3722BA2CAD}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FCM.IO.Loader", "FCM.IO.Loader\FCM.IO.Loader.csproj", "{E023F5CD-74EE-451B-B332-11986447E76A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FCM.IO.Exporter", "FCM.IO.Exporter\FCM.IO.Exporter.csproj", "{9DC9C0D6-B238-46F1-B258-D31FF229EDBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FCM.BLL", "FCM.BLL\FCM.BLL.csproj", "{394C419E-497B-4C25-91EB-C8F2057A6E1B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{9DC9C0D6-B238-46F1-B258-D31FF229EDBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DC9C0D6-B238-46F1-B258-D31FF229EDBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DC9C0D6-B238-46F1-B258-D31FF229EDBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{394C419E-497B-4C25-91EB-C8F2057A6E1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{394C419E-497B-4C25-91EB-C8F2057A6E1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{394C419E-497B-4C25-91EB-C8F2057A6E1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{394C419E-497B-4C25-91EB-C8F2057A6E1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
